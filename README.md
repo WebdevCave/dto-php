@@ -1,26 +1,58 @@
-# New Library 
+# Webdevcave DTO
 
-Description of the library. **This is an example for a library README. Change it to fit your specific project**
+Provides a foundation for data transfer objects in PHP applications. Built with support for `ArrayAccess`, `JsonSerializable` interfaces and hydration provided by our dependency injection container (`webdevcave/yadic`).
+
+## Requirements
+
+- PHP >= 8.4.1
+- [Composer](https://getcomposer.org/)
 
 ## Installation
 
 Using composer:
+
 ```bash
-composer require vendor/package
+composer require webdevcave/dto
 ```
 
 ## Usage example
 
-```php
-use My\Super\Library;
+Extend the `DataTransferObject` class and define your properties. You can use the `from()` method to hydrate the DTO from an array.
 
-$library = new Library();
-$library->doSomething();
+```php
+use Webdevcave\DTO\DataTransferObject;
+
+class UserDTO extends DataTransferObject
+{
+    public string $name;
+    public string $email;
+}
+
+// Hydrating from array
+$data = ['name' => 'John Doe', 'email' => 'john@example.com'];
+$user = UserDTO::from($data);
+
+echo $user->name; // John Doe
+
+// ArrayAccess
+echo $user['email']; // john@example.com
+
+// JSON Serialization
+echo json_encode($user);
 ```
 
+## Scripts
+
+The following scripts are available via Composer:
+
+- `composer test`: Run the tests (Note: Currently no tests found in `tests/` directory)
+- `composer test-coverage`: Run the tests with coverage (requires Xdebug)
+
+
 ## Contributing
-Contributions are welcome! If you find any issues or have suggestions for improvements, please open an issue or a pull
-request on GitHub.
+
+Contributions are welcome! If you find any issues or have suggestions for improvements, please open an issue or a pull request on GitHub.
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
