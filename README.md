@@ -45,9 +45,17 @@ echo json_encode($user);
 
 The following scripts are available via Composer:
 
-- `composer test`: Run the tests (Note: Currently no tests found in `tests/` directory)
+- `composer test`: Run the tests
 - `composer test-coverage`: Run the tests with coverage (requires Xdebug)
+- `composer check-coverage`: Check the coverage
 
+## Tests
+
+The project uses PHPUnit for testing. You can run the tests using:
+
+```bash
+composer test
+```
 
 ## Contributing
 
