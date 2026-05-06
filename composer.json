@@ -1,16 +1,16 @@
 {
-    "name": "webdevcave/lib-template-php",
-    "description": "Template for libs written in PHP",
+    "name": "webdevcave/dto",
+    "description": "Provides a foundation for data transfer objects in PHP applications. Built with support for ArrayAccess, JsonSerializable interfaces and hydration provided by our dependency injection container.",
     "type": "library",
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Webdevcave\\LibTemplatePhp\\": "src/"
+            "Webdevcave\\DTO\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Webdevcave\\LibTemplatePhp\\Tests\\": "tests/"
+            "Webdevcave\\DTO\\Tests\\": "tests/"
         }
     },
     "authors": [
@@ -20,11 +20,12 @@
         }
     ],
     "require": {
-        "php": ">=8.2"
+        "php": ">=8.4.1",
+        "webdevcave/yadic": "^1.2"
     },
     "require-dev": {
-        "phpunit/phpunit": "^11.5",
-        "rregeer/phpunit-coverage-check": "^0.3.1"
+        "rregeer/phpunit-coverage-check": "^0.3.1",
+        "phpunit/phpunit": "^13.1"
     },
     "scripts": {
         "test": "./vendor/bin/phpunit --no-coverage",
