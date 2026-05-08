@@ -25,7 +25,7 @@ use Webdevcave\DTO\DataTransferObject;
 class UserDTO extends DataTransferObject
 {
     public function __construct(
-        public readonly string $name,
+        public readonly string $name,  // Use 'readonly' for strictness.
         public readonly string $email,
     ) {}
 }
