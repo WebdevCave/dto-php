@@ -24,8 +24,10 @@ use Webdevcave\DTO\DataTransferObject;
 
 class UserDTO extends DataTransferObject
 {
-    public string $name;
-    public string $email;
+    public function __construct(
+        public readonly string $name,
+        public readonly string $email,
+    ) {}
 }
 
 // Hydrating from array
@@ -47,7 +49,7 @@ The following scripts are available via Composer:
 
 - `composer test`: Run the tests
 - `composer test-coverage`: Run the tests with coverage (requires Xdebug)
-- `composer check-coverage`: Check the coverage
+- `composer check-coverage`: Check the coverage (run test-coverage first)
 
 ## Tests
 
